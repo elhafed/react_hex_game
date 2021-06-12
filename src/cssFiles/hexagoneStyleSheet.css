@@ -1,0 +1,60 @@
+.triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 20px solid grey;
+}
+.triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 20px solid grey;
+}
+.triangle-up-left-90-angle {
+  width: 0;
+  height: 0;
+  border-left: 0px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 20px solid blue;
+}
+.triangle-up-right-90-angle {
+  width: 0;
+  height: 10px;
+  border-left: 25px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 20px solid blue;
+}
+.triangle-down-left-90-angle {
+  width: 0;
+  height: 10px;
+  border-left: 0px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 20px solid blue;
+}
+.triangle-down-right-90-angle {
+  width: 0;
+  height: 10px;
+  border-left: 25px solid transparent;
+  border-right: 0px solid transparent;
+  border-top: 20px solid blue;
+}
+.rectangle {
+  width: 50px;
+  height: 30px;
+  background-color: grey;
+}
+.hex {
+  margin: 0px 2px 2px 0px;
+}
+.cercle {
+  position: relative;
+  left: 5px;
+  top: -3px;
+  min-width: 40px;
+  min-height: 40px;
+  max-width: 40px;
+  max-height: 40px;
+  border-radius: 20px;
+}
