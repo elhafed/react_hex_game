@@ -20,26 +20,21 @@ export default function HexBoard({ rowsNumber, restart, player1, player2, first 
     }
 
     const [showMsg, setShowMsg] = useState(true);
+    const [showResult, setShowResult] = useState(false);
+    const [whosTurn, setWhosTurn] = useState(1);
+    const [grid, setGrid] = useState([]);
     useEffect(() => {
         const rows = [];
-        for (let i = 0; i < parseInt(rowsNumber); i++) {
+        for (let i = 0; i < rowsNumber; i++) {
 
-            rows.push(Array.from(Array(parseInt(rowsNumber)), () => 0))
+            rows.push(Array.from(Array(rowsNumber), () => 0))
         }
         setGrid(rows);
         setWhosTurn(1);
         setShowMsg(true);
         setWinner(0);
+        console.log("i am in")
     }, [restart, rowsNumber])
-    const [grid, setGrid] = useState(() => {
-        const rows = [];
-        for (let i = 0; i < rowsNumber; i++) {
-            rows.push(Array.from(Array(parseInt(rowsNumber)), () => 0))
-        }
-
-        return rows;
-    });
-    const [whosTurn, setWhosTurn] = useState(1);
 
     const fillingCell = (i1, i2, value) => {
         setGrid(produce(grid, newgrid => { newgrid[i1][i2] = value; }));
@@ -102,7 +97,7 @@ export default function HexBoard({ rowsNumber, restart, player1, player2, first 
                     if (n.j === rowsNumber - 1) end = true;
                 }return '';
             });
-            if (start && end) setWinner(whosTurn % 2 + 1);
+            if (start && end) {setWinner(whosTurn % 2 + 1);setShowResult(true);}
             return'';
         })
 
@@ -152,7 +147,8 @@ export default function HexBoard({ rowsNumber, restart, player1, player2, first 
                 margin: '20px',
                 display: 'flex',
                 justifyContent: 'center',
-                flexWrap: 'wrap'
+                flexWrap: 'wrap',
+                overflow:'scroll'
             }}>
 
                 <div style={{
@@ -164,8 +160,20 @@ export default function HexBoard({ rowsNumber, restart, player1, player2, first 
                 </div>
 
             </div>
-            <Modal>
-
+            <Modal isOpen={showResult}>
+                <div style={{display:'flex',justifyContent:'center'}}>
+                <img width={350} src='https://i.pinimg.com/564x/cf/f0/57/cff057e9b0b3b0f9edeb98470d0773a1.jpg'/>
+                </div>
+                <div style={{display:'flex',justifyContent:'center'}}>
+                <h2 style={{position:'relative',bottom:120}}>
+                        The winner is {
+                            ((winner===1 && first===1)||(winner===2 && first===2))? player1:player2
+                        }
+                </h2>
+                </div>
+                <div className='anass'>
+                <span className='active' onClick={()=>setShowResult(false)}>OK</span >
+                </div>
             </Modal>
 
         </>

@@ -9,8 +9,8 @@ export class Hexagone extends Component {
 
                 {(this.props.index2 === 0) ? <><span style={{
                     position: 'relative',
-                    top: (this.props.index !== 0) ? 22 : 6,
-                    right: 5
+                    top: (this.props.index !== 0) ? 22 : 62,
+                    right: 5 
                 }}>{this.props.index + 1}</span><HalfHexagon styleSheet={{
                     position: 'relative',
                     top: (this.props.index !== 0) ? -1 : 41,

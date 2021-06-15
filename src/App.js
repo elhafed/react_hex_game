@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import Home from './Home'
+import Home from './Home';
+import AboutTheGame from './Components/AboutTheGame'
 import './App.css';
 
 // import Hexagone from './Components/hexagoneComponent'
@@ -22,17 +23,20 @@ function App() {
         <span className={(pageNumber===1)?"active":""} onClick={()=>{setpageNumber(0);setisModalOpen(true);}}> New game </span>
         <span className={(pageNumber===2)?"active":""} onClick={()=>{setpageNumber(2)}}> About the game </span>
         <span className={(pageNumber===3)?"active":""} onClick={()=>{setpageNumber(3)}}> Contact </span>
+       {/* {(pageNumber!==1&&gameInfos.player1!==''&&gameInfos.player2!=='')? <span  
+              onClick={()=>{setpageNumber(1)}}
+              style={{float:'right',backgroundColor:'maroon'}}> Continue </span>:''} */}
       </div>
 
      {
         (pageNumber===0) ? <Home/> : 
-        (pageNumber===1) ? <div> <HexBoard  rowsNumber={gameInfos.rowsNumber} 
+        (pageNumber===1) ? <div> <HexBoard  rowsNumber={ parseInt(gameInfos.rowsNumber)} 
                                             restart={restart}
                                             player1={gameInfos.player1}
                                             player2={gameInfos.player2}
                                             first={gameInfos.first} />
                             </div>:
-        (pageNumber===2) ? "About The game":
+        (pageNumber===2) ? <AboutTheGame/>:
         (pageNumber===3) ?" Contact me":""}
 
       <Modal ariaHideApp={false} isOpen={isModalOpen} style={{content : {top :'50%',left:'50%',right: 'auto',bottom: 'auto',
@@ -43,7 +47,7 @@ function App() {
         
       }}style={{
           width:600,
-          height : 300,
+          height : 400,
           marginTop:10
         }}>
           <label>First player Name : <span style={{color:'red'}}>*</span></label>
@@ -59,7 +63,8 @@ function App() {
               <option value={7}>7</option>
               <option value={9}>9</option>
               <option value={11}>11</option>
-              <option value={14}>14</option>
+              <option value={13}>13</option> 
+              <option value={15}>15</option>
             </select>
           <button type='submit' className="modalbutton">Start the game</button>
           <button type='button' className="modalbutton" 

@@ -138,3 +138,18 @@ select {
 .closebtn:hover {
   color: black;
 }
+.anass span {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 100%;
+}
+
+/* anass links on mouse-over */
+.anass span:hover {
+  background-color: #000;
+  cursor: pointer;
+}
